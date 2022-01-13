@@ -59,24 +59,17 @@ describe('test vedio fetching related functions', () => {
   });
 
   it('should return a valid video url info array - fetchVideoDetails function', async () => {
-    const anotherPlaylist = {
-      playlist: [
-        {
-          title: 'title1',
-          mediaid: 'mediaid1',
-          link: 'link1',
-          sources: videoSources,
-        }
-      ]
-    }
-    const mockedGet1 = jest.spyOn(axios, 'get').mockImplementationOnce(() => Promise.resolve({ data: playlist }));
-    const result =   {
-      videoId: 'yV3sKWI6',
-      title: 'Tristan MacManus and Pamela Anderson perform on The View',
-      link: 'https://cdn.jwplayer.com/previews/yV3sKWI6',
-      videoUrl: 'https://cdn.jwplayer.com/videos/yV3sKWI6-lUTv4n5l.mp4'
+    const mockedGet = jest.spyOn(axios, 'get').mockImplementation(() => Promise.resolve({ data: playlist }));
+    const expectedResultArrayItem =   {
+      videoId: 'mediaid',
+      title: 'title',
+      link: 'link',
+      videoUrl: '2'
     }
     
-    await fetchVideoDetails(['mediaid1', 'mediaid2']);
-  })
+    // Here two same media ids are used as input, here we just want to test if the valid results can be generated, they doesn't need to be different
+    const results = await fetchVideoDetails(['mediaid', 'mediaid']);
+
+    expect(results).toEqual([expectedResultArrayItem, expectedResultArrayItem]);
+  });
 });
