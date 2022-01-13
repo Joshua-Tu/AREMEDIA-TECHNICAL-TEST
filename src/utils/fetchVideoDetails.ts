@@ -20,7 +20,7 @@ function fetchVideoDetails(extractedVideos: string[]): Promise<ExtractedVideoDet
           link,
           videoUrl: selectHighestResolutionUrl(sources),
         });
-      })
+      });
 
       resolve(fetchedVideoDetails);
     })
