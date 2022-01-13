@@ -72,4 +72,13 @@ describe('test vedio fetching related functions', () => {
 
     expect(results).toEqual([expectedResultArrayItem, expectedResultArrayItem]);
   });
+
+  it.only('should throw an error when calling api failed - fetchVideoDetails function', async () => {
+    const mockedGet = jest.spyOn(axios, 'get').mockImplementation(() => Promise.reject('error'));
+    try {
+      await fetchVideoDetails(['mediaid', 'mediaid'])
+    } catch (error) {
+      expect(error).toBe('error');
+    }
+  })
 });
