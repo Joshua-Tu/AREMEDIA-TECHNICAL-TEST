@@ -24,3 +24,5 @@ Note: A description of what would be tested in a specific component is also acce
 - Refine error handling in the functions to log all the error types instead of a general error.
 - Add some code to deal with empty sample input case
 - Add type checks for the request and response for the third party api (if third party api documentation has type dependencies file)
+
+# Just in case, please create a generated_files folder under the root directory to see the generated csv files when running the app
