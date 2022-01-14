@@ -17,7 +17,7 @@ const extractVideos = (sampleInput: SampleJSONData): string[] => {
 
   const videoSet = new Set(videosData);
 
-  return [...videosData];
+  return [...videoSet];
 };
 
 export default extractVideos;

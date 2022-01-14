@@ -51,14 +51,14 @@ describe('test sample input data image urls extraction function', () => {
     ]);
   });
 
-  it('should return an array of unique image url', () => {
+  it('should return an array of unique image urls', () => {
     const testInputs = {
       data: [
         ...testInput.data,
         {
           contentImageUrl: 'imageUrl2',
           contentFacebookImageUrl: {
-            url: 'imageUrl0'
+            url: 'imageUrl3'
           },
           contentBody: [
             {
@@ -76,10 +76,10 @@ describe('test sample input data image urls extraction function', () => {
       ]
     } as any;
 
-    const result = extractImages(testInput);
+    const result = extractImages(testInputs);
 
     expect(result).toEqual([
-      'imageUrl0', 'imageUrl1', 'imageUrl2'
+      'imageUrl0', 'imageUrl1', 'imageUrl2', 'imageUrl3'
     ]);
   })
 })
