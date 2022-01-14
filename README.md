@@ -20,4 +20,7 @@ Note: A description of what would be tested in a specific component is also acce
 - if you have any questions please don't hesitate to ask us.
 
 ## Future improvement for my solution
-
+- Add redis-cache to stop third party api from being calling multiple times.
+- Refine error handling in the functions to log all the error types instead of a general error.
+- Add some code to deal with empty sample input case
+- Add type checks for the request and response for the third party api (if third party api documentation has type dependencies file)
