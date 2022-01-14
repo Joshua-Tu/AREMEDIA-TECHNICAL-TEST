@@ -7,15 +7,20 @@ const csvWriter = createObjectCsvWriter({
   ]
 });
 
-async function writeImagesData2CSV(imagesData: string[]): Promise<any> {
+async function writeImagesData2CSV(imagesData: string[] = []): Promise<any> {
   try {
+    if (!imagesData || imagesData.length == 0) {
+      console.log('...No image urls found in the input')
+      return ;
+    };
+
     const records = imagesData.map((imageUrl: string): {imageUrl: string} => ({ imageUrl }));
 
     await csvWriter.writeRecords(records);
 
     console.log('...all image urls written into the generated_files/imageUrl.csv');
   } catch (error: any) {
-    console.log(error.message);
+    console.log(error);
   }
 }
 
