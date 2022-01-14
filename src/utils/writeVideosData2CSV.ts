@@ -13,6 +13,10 @@ const csvWriter = createObjectCsvWriter({
 
 async function writeVideosData2CSV(videoData: ExtractedVideoDetails[]): Promise<any> {
   try {
+    if (videoData.length == 0) {
+      console.log('...No video info found in the input');
+      return;
+    }
     await csvWriter.writeRecords(videoData);
 
     console.log('...all video urls written into the generated_files/videoUrl.csv');
